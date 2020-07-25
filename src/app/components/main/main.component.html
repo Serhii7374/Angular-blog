@@ -1,0 +1,149 @@
+<header>
+    <h1>Angular Blog</h1>
+    <div class="twoBtn" *ngIf="!swichLogin">
+        <input type="button" value="Sign In" (click)="openModalLogin()">
+        <input type="button" value="Sign Up" (click)="openSignUpModal()">
+    </div>
+    <div class="twoBtnLogin" *ngIf="swichLogin">
+        <input type="button" value="Add post" (click)="openModalBlog()">
+        <span>{{ whoLogined }}</span>
+        <input type="button" value="Sign Out" (click)="signOut()">
+    </div>
+</header>
+
+<main>
+    <div class="blog" *ngFor="let b of blogs; let i=index">
+        <div class="blog__main">
+            <h2>{{ b.topic }}</h2>
+            <span>Posted by: {{ b.postedBy }}</span>
+            <p>{{ b.message }}</p>
+        </div>
+        <div class="blog__date">
+            <div class="blog__date__date">
+                <i class="far fa-clock"></i>
+                {{ b.date | date:' HH:mm, dd.MM.yyyy' }}
+            </div>
+            <ng-container *ngIf="swichEditDelete && b.postedBy == whoLogined || swichEditDelete && whoLogined == 'Admin'">
+                <div class="blog__date__btn">
+                    <input type="button" value="Edit" (click)="openEditBlog(i)">
+                    <input type="button" value="Delete" (click)="deleteBlog(i)">
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</main>
+
+
+
+<!-- Модалки ----------- -->
+<!-- Модалка 1 Логінування -->
+<ng-container *ngIf="modalLoginSwich">
+    <div class="myModal">
+        <div class="modal__content1">
+            <div class="modal__header">
+                <span>Sign In</span>
+                <span (click)="closeModalLogin()">&times;</span>
+            </div>
+            <div class="modal__body1">
+                <div>
+                    <span>Email:</span>
+                    <input type="text" [(ngModel)]="email" name="email" placeholder="Write your email..">
+                </div>
+                <div>
+                    <span>Password:</span>
+                    <input type="text" [(ngModel)]="password" name="password" placeholder="Write your password..">
+                </div>
+            </div>
+            <div class="modal__footer1">
+                <input type="button" value="Close" (click)="closeModalLogin()">
+                <input type="button" value="Submit" (click)="submit()">
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<!-- Модалка 2 створення блогу -->
+
+<ng-container *ngIf="modalBlogSwich">
+    <div class="myModal">
+        <div class="modal__content2">
+            <div class="modal__header">
+                <span>Add post</span>
+                <span (click)="closeModalBlog()">&times;</span>
+            </div>
+            <div class="modal__body2">
+                <div>
+                    <span>Title:</span>
+                    <input type="text"  [(ngModel)]="title" name="title" placeholder="Write your title..">
+                </div>
+                <div>
+                    <span>Text:</span>
+                    <textarea cols="30" rows="5" [(ngModel)]="text" name="text" placeholder="Write your text.."></textarea>
+                </div>
+            </div>
+            <div class="modal__footer2">
+                <input type="button" value="Close" (click)="closeModalBlog()">
+                <input type="button" value="Post" (click)="post()">
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<!-- Модалка 3 Редагування блогу -->
+
+<ng-container *ngIf="modalEditSwich">
+    <div class="myModal">
+        <div class="modal__content2">
+            <div class="modal__header">
+                <span>Edit post</span>
+                <span (click)="closeEditBlog()">&times;</span>
+            </div>
+            <div class="modal__body2">
+                <div>
+                    <span>Title:</span>
+                    <input type="text" [(ngModel)]="title" name="title"  placeholder="Write your title..">
+                </div>
+                <div>
+                    <span>Text:</span>
+                    <textarea cols="30" [(ngModel)]="text" name="text" rows="5" placeholder="Write your text.."></textarea>
+                </div>
+            </div>
+            <div class="modal__footer2">
+                <input type="button" value="Close" (click)="closeEditBlog()">
+                <input type="button" value="Edit post" (click)="editPost()">
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<!-- Модалка 4 створення нового юзера -->
+
+<ng-container *ngIf="signUpModalSwich">
+    <div class="myModal">
+        <div class="modal__content2">
+            <div class="modal__header">
+                <span>Sign Up</span>
+                <span (click)="closeSignUpModal()">&times;</span>
+            </div>
+            <div class="modal__body3">
+                <div>
+                    <span>Username:</span>
+                    <input type="text" [(ngModel)]="name" name="name" placeholder="Write your name..">
+                </div>
+                <div>
+                    <span>Email:</span>
+                    <input type="text" [(ngModel)]="email" name="email" placeholder="Write your email..">
+                </div>
+                <div>
+                    <span>Password:</span>
+                    <input type="password" [(ngModel)]="password" name="password" placeholder="Write your password..">
+                </div>
+            </div>
+            <div class="modal__footer3">
+                <input type="button" value="Close" (click)="closeSignUpModal()">
+                <input type="button" value="Submit" (click)="submitNewUser()">
+            </div>
+        </div>
+    </div>
+</ng-container>

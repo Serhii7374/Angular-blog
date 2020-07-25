@@ -1,0 +1,437 @@
+%textInput {
+    height: 40px;
+    border: 1px solid silver;
+    padding-left: 10px;
+    border-radius: 5px;
+    outline: none;
+    &:focus {
+        box-shadow: 0px 0px 5px 0px #3c93d5;
+    }
+}
+input[type="button"]:hover {
+    cursor: pointer;
+    font-family: "HammersmithOne";
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: rgb(78, 78, 78);
+    & h1 {
+        color: skyblue;
+        font-family: HammersmithOne;
+    }
+}
+.twoBtn {
+    width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & input {
+        width: 70px;
+        height: 40px;
+        outline: none;
+        background-color: rgb(78, 78, 78);
+    }
+    & input[value="Sign In"] {
+        color: limegreen;
+        border: 2px solid limegreen;
+        border-radius: 5px 0 0 5px;
+        margin-right: -1px;
+        &:hover {
+            background-color: green;
+            color: white;
+            box-shadow: 0px 0px 7px 2px limegreen;
+        }
+    }
+    & input[value="Sign Up"] {
+        color: skyblue;
+        border: 2px solid skyblue;
+        border-radius: 0 5px 5px 0;
+        &:hover {
+            background-color: blue;
+            color: white;
+            box-shadow: 0px 0px 7px 2px skyblue;
+        }
+    }
+}
+.twoBtnLogin {
+    min-width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & span {
+        min-width: 70px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: orange;
+        color: rgb(78, 78, 78);
+        user-select: none;
+    }
+    & input {
+        width: 90px;
+        height: 40px;
+        outline: none;
+        background-color: rgb(78, 78, 78);
+    }
+    & input[value="Add post"] {
+        color: limegreen;
+        border: 2px solid limegreen;
+        border-radius: 5px 0 0 5px;
+        margin-right: -1px;
+        &:hover {
+            background-color: green;
+            color: white;
+            box-shadow: 0px 0px 5px 2px limegreen;
+        }
+    }
+    & input[value="Sign Out"] {
+        color: orange;
+        border: 2px solid orange;
+        border-radius: 0 5px 5px 0;
+        &:hover {
+            background-color: rgb(212, 138, 0);
+            color: white;
+            box-shadow: 0px 0px 5px 2px orange;
+        }
+    }
+}
+
+main {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.blog {
+    width: 100%;
+    min-height: 200px;
+    border-radius: 5px;
+    border: 1px solid silver;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px 0;
+    & .blog__main {
+        width: calc(100% - 250px);
+        height: inherit;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        & h2 {
+            font-family: "IndieFlower";
+        }
+        & span {
+            color: gray;
+        }
+        & p {
+            font-size: 26px;
+            font-family: "Cookie-Regular";
+        }
+    }
+    & .blog__date {
+        width: 250px;
+        height: inherit;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+}
+.blog__date__date {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
+.blog__date__btn {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    & input {
+        width: 60px;
+        height: 30px;
+        outline: none;
+    }
+    & input[value="Edit"] {
+        color: black;
+        border: 0;
+        border-radius: 5px 0 0 5px;
+        margin-right: -1px;
+        background-color: gold;
+        &:hover {
+            background-color: goldenrod;
+            color: white;
+            box-shadow: 0px 0px 3px 2px orange;
+        }
+    }
+    & input[value="Delete"] {
+        color: black;
+        border: 0;
+        border-radius: 0 5px 5px 0;
+        background-color: red;
+        &:hover {
+            color: white;
+            background-color: rgb(221, 0, 0);
+            box-shadow: 0px 0px 3px 2px red;
+        }
+    }
+}
+
+// ---- Модалка -----
+// Модалка 1 Логінування
+.myModal {
+    z-index: 3;
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal__content1 {
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    width: 500px;
+    height: 350px;
+    border-radius: 5px;
+}
+.modal__header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0 20px;
+    font-size: 22px;
+    & span:last-child {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 30px;
+        transition: 0.7s;
+        &:hover {
+            background-color: silver;
+            color: red;
+            cursor: pointer;
+            transform: rotate(360deg);
+        }
+    }
+}
+.modal__body1 {
+    width: 100%;
+    height: 210px;
+    display: flex;
+    padding: 30px 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+    & div {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        & span {
+            margin-bottom: 5px;
+        }
+    }
+    & input {
+        @extend %textInput;
+        width: 100%;
+    }
+}
+.modal__footer1 {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    & input {
+        height: 30px;
+        border-radius: 5px;
+        border: 0;
+        color: white;
+    }
+    & input[value="Close"] {
+        width: 60px;
+        background-color: gray;
+        margin-right: 10px;
+        &:hover {
+            background-color: silver;
+            box-shadow: 0px 0px 4px 2px gray;
+        }
+    }
+    & input[value="Submit"] {
+        width: 70px;
+        color: white;
+        background-color: green;
+        &:hover {
+            background-color: limegreen;
+            box-shadow: 0px 0px 4px 2px green;
+        }
+    }
+}
+//  Модалка 2 створення блогу
+.modal__content2 {
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    width: 500px;
+    height: 390px;
+    border-radius: 5px;
+}
+.modal__body2 {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+    & div {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        & span {
+            margin-bottom: 5px;
+        }
+    }
+    & input {
+        @extend %textInput;
+        width: 100%;
+    }
+    & textarea {
+        width: 100%;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid silver;
+        padding: 10px;
+        resize: none;
+        &:focus {
+            box-shadow: 0px 0px 5px 0px #3c93d5;
+        }
+    }
+}
+.modal__footer2 {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    & input {
+        height: 30px;
+        border-radius: 5px;
+        border: 0;
+        color: white;
+    }
+    & input[value="Close"] {
+        width: 60px;
+        background-color: gray;
+        margin-right: 10px;
+        &:hover {
+            background-color: silver;
+            box-shadow: 0px 0px 4px 0px gray;
+        }
+    }
+    & input[value="Post"] {
+        width: 50px;
+        color: white;
+        background-color: green;
+        &:hover {
+            background-color: limegreen;
+            box-shadow: 0px 0px 4px 2px green;
+        }
+    }
+    & input[value="Edit post"] {
+        width: 90px;
+        color: white;
+        background-color: green;
+        &:hover {
+            background-color: limegreen;
+            box-shadow: 0px 0px 4px 2px green;
+        }
+    }
+}
+//  Модалка 3 Редагування блогу
+.modal__body3 {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+    & div {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        & span {
+            margin-bottom: 5px;
+        }
+    }
+    & input {
+        @extend %textInput;
+        width: 100%;
+    }
+}
+.modal__footer3 {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    & input {
+        height: 30px;
+        border-radius: 5px;
+        border: 0;
+        color: white;
+    }
+    & input[value="Close"] {
+        width: 60px;
+        background-color: gray;
+        margin-right: 10px;
+        &:hover {
+            background-color: silver;
+            box-shadow: 0px 0px 4px 2px gray;
+        }
+    }
+    & input[value="Submit"] {
+        width: 70px;
+        color: white;
+        background-color: blue;
+        &:hover {
+            background-color: rgb(0, 0, 206);
+            box-shadow: 0px 0px 4px 2px blue;
+        }
+    }
+}

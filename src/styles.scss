@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family: "IndieFlower";
+    src: url(./assets/fonts/IndieFlower-Regular.ttf);
+}
+@font-face{
+    font-family: "Cookie-Regular";
+    src: url(./assets/fonts/Cookie-Regular.ttf);
+}
+@font-face{
+    font-family: "HammersmithOne";
+    src: url(./assets/fonts/HammersmithOne-Regular.ttf);
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body, html{
+    width: 100%;
+    height: 100%;
+}
